@@ -15,11 +15,12 @@ function Login() {
   } = useForm();
 
   const dialogRef = useRef(null);
+  const apiUrl = process.env.REACT_APP_API_URL;
 
   const onSubmit = async (data) => {
     try {
       const response = await axios.post(
-        "http://localhost:4000/user/login",
+        `${apiUrl}/user/login`,
         data
       );
 

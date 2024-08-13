@@ -18,10 +18,11 @@ function Signup() {
       password: "",
     },
   });
+  const apiUrl = process.env.REACT_APP_API_URL;
 
   const onSubmit = async (data) => {
     try {
-      const response = await axios.post("http://localhost:4000/user/signup", data);
+      const response = await axios.post(`${apiUrl}/user/signup`, data);
 
       if (response.status === 201) {
         toast.success('User successfully registered!!');
