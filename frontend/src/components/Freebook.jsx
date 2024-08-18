@@ -7,13 +7,13 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 function Freebook() {
-  const apiUrl = process.env.REACT_APP_API_URL;
+  // const apiUrl = process.env.REACT_APP_API_URL;
 
   const [book, setBook] = useState([]);
   useEffect(() => {
       const getBooks = async () => {
           try {
-              const res = await axios.get(`${apiUrl}/books`);
+              const res = await axios.get(`http://localhost:4000/books`);
               const data = res.data.filter((data) => data.price === 0.0);
               // console.log(data);
               setBook(res.data);
