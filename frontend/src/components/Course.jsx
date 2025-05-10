@@ -1,14 +1,18 @@
 import React, { useEffect, useState } from 'react'
 import Cards from './Cards'
 import axios from 'axios'
+import apiUrl from '../services/Helper'
 function Course() {
     // const apiUrl = process.env.REACT_APP_API_URL;
+    // const apiUrl = import.meta.env.API_URL;
 
     const [book, setBook] = useState([]);
     useEffect(() => {
         const getBooks = async () => {
             try {
-                const res = await axios.get(`http://localhost:4000/books`);
+                const res = await axios.get(`${apiUrl}/books`);
+                // const res = await axios.get('https://bookstore-server-0pf5.onrender.com/books');
+
                 // console.log(res.data);
                 setBook(res.data);
             } catch (error) {
@@ -16,7 +20,7 @@ function Course() {
             }
         };
         getBooks();
-    }, []);
+    }, [apiUrl]);
   return (
     <>
         <div className='max-w-screen-2xl container mx-auto md:px-20 px-4 bg-darkTheme dark:bg-white'>

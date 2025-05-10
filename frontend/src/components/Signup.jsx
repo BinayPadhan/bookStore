@@ -5,6 +5,7 @@ import axios from "axios";
 import { Flip, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Login from "./Login";
+import apiUrl from '../services/Helper'
 
 function Signup() {
   const {
@@ -18,11 +19,13 @@ function Signup() {
       password: "",
     },
   });
-  // const apiUrl = process.env.REACT_APP_API_URL;
+  // const apiUrl = import.meta.env.API_URL;
+
 
   const onSubmit = async (data) => {
     try {
-      const response = await axios.post(`http://localhost:4000/user/signup`, data);
+      const response = await axios.post(`${apiUrl}/user/signup`, data);
+      // const response = await axios.get('https://bookstore-server-0pf5.onrender.com/user/signup', data);
 
       if (response.status === 201) {
         toast.success('User successfully registered!!');

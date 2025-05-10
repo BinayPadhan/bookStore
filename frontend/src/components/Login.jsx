@@ -5,6 +5,7 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
 import { useAuth } from "../context/AuthContext";
+import apiUrl from '../services/Helper'
 
 
 
@@ -17,14 +18,16 @@ function Login() {
   } = useForm();
 
   const dialogRef = useRef(null);
-  // const apiUrl = process.env.REACT_APP_API_URL;
+  // const apiUrl = import.meta.env.API_URL;
+
 
   const onSubmit = async (data) => {
     try {
       const response = await axios.post(
-        `http://localhost:4000/user/login`,
+        `${apiUrl}/user/login`,
         data
       );
+      // const response = await axios.get('https://bookstore-server-0pf5.onrender.com/user/login', data);
 
       if (response.status === 200) {
         setTimeout(() => {

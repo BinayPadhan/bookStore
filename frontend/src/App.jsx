@@ -11,9 +11,9 @@ import Loading from "./components/Loading"; // Import the Loading component
 function App() {
   const { isAuthenticated, isLoading } = useAuth(); // Get loading state
 
-  if (isLoading) {
-    return <Loading />; // Show the loading spinner while determining auth status
-  }
+  // if (isLoading) {
+  //   return <Loading />; // Show the loading spinner while determining auth status
+  // }
 
   return (
     <>

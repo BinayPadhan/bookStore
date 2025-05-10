@@ -37,6 +37,8 @@ export const loginUser = async (req, res) => {
         if (!user || !isValid) {
             return res.status(401).json({ message: "Invalid email address or password." });
         }
+
+        
         res.status(200).json({
             message: "User logged in successfully",
             user: {
